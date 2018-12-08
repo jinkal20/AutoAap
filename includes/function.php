@@ -1,7 +1,7 @@
 <?php
 include 'connect.php';
 
-function get_single_video($pdo) {
+function get_all_data($pdo) {
     $query = "SELECT * FROM tbl_car";
 
     $get_video = $pdo->query($query);

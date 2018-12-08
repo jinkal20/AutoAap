@@ -1,10 +1,11 @@
 (()=>{
+    
     const vm = new Vue({
         el: '#app',
         data: {
-            mainmessage : "car page",
-            videodata: [],
-            singlemoviedata: [],
+            mainmessage : "Car page",
+            kidsdata: [],
+            singlecarappdata: [],
             kidsdescription :"",
             showDetails : false
         },
@@ -12,20 +13,20 @@
             this.fetchKidsData(null);
         },
         methods : {
-            fetchKidsData(movie) {
-                url = movie ? `./includes/index.php?movie=${movie}` : './includes/index.php';
+            fetchKidsData(carapp) {
+                url = carapp ? `./includes/index.php?carapp=${carapp}` : './includes/index.php';
                 fetch(url)
                 .then(res => res.json())
                 .then(data => {
-                    if (movie){
+                    if (carapp){
                         console.log(data);
-                        this.singlemoviedata =data;
+                        this.singlecarappdata =data;
                     } else {
                         console.log(data);
-                        this.videodata =data;
+                        this.kidsdata =data;
                     }
                 })
             }
         }
     });
-})
+})();
